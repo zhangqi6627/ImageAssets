@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    namespace = "com.google.imageassets.xc6331b7a83a5b027274d88c6a9bb9551"
+    namespace = "com.james.imageassets"
     compileSdk = 34
 
     signingConfigs {
@@ -12,10 +12,11 @@ android {
             keyPassword = "4815912"
             storeFile = file("sign.jks")
             storePassword = "4815912"
+
         }
     }
     defaultConfig {
-        applicationId = "com.google.imageassets.xc6331b7a83a5b027274d88c6a9bb9551"
+        applicationId = "com.james.imageassets"
         minSdk = 24
         targetSdk = 34
         versionCode = 1

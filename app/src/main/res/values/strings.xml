@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">AlbumAssets</string>
+    <string name="app_name">ImageAssets</string>
+    <string name="image_count">0</string>
 </resources>
