@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <TextView
+        android:id="@+id/tv_progress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:gravity="center"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="11sp" />
+
+    <ImageView
+        android:id="@+id/iv_cover"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="TODO"
+        android:src="#0096ff"
+        android:visibility="gone" />
+
+</FrameLayout>
