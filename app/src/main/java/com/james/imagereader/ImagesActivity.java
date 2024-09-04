@@ -143,12 +143,8 @@ public class ImagesActivity extends BaseActivity {
             char[] buff = new char[1000];
             while (inputStreamReader.read(buff) != -1) {
                 String response = new String(buff);
-
-                Log.e("zq8888", Thread.currentThread().getStackTrace()[2].getClassName() + "-->" + Thread.currentThread().getStackTrace()[2].getMethodName() + "()-->" + Thread.currentThread().getStackTrace()[2].getLineNumber() + " response: " + response);
             }
         } catch (IOException e) {
-            Log.e("zq8888", Thread.currentThread().getStackTrace()[2].getClassName() + "-->" + Thread.currentThread().getStackTrace()[2].getMethodName() + "()-->" + Thread.currentThread().getStackTrace()[2].getLineNumber() + " e: " + e, e);
-
         }
     }
 
@@ -236,6 +232,9 @@ public class ImagesActivity extends BaseActivity {
                 Bitmap mBitmap = BitmapFactory.decodeStream(imageStream, rect, options);
                 int bWidth = options.outWidth;
                 int bHeight = options.outHeight;
+                if (bWidth == -1 || bHeight == -1) {
+                    throw new IOException();
+                }
                 int iWidth = screenWidth;
                 int iHeight = iWidth * bHeight / bWidth;
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(iWidth, iHeight);
@@ -243,6 +242,7 @@ public class ImagesActivity extends BaseActivity {
                 holder.iv_photo.setImageBitmap(mBitmap);
             } catch (IOException e) {
                 e.printStackTrace();
+                holder.iv_photo.setLayoutParams(new RelativeLayout.LayoutParams(0, 0));
             } finally {
                 if (imageStream != null) {
                     try {
